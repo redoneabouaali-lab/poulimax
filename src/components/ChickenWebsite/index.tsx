@@ -101,7 +101,7 @@ const ChickenWebsite = () => {
             playsInline 
             className="w-full h-full object-cover opacity-50 grayscale-[30%] brightness-[0.7]"
           >
-            <source src="/poulimax/Move_them_eat_grass_walking_202604290945.mp4" type="video/mp4" />
+            <source src="Move_them_eat_grass_walking_202604290945.mp4" type="video/mp4" />
           </video>
           {/* Warm Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#2D241E]/80 via-transparent to-[#FDFBF7]" />
@@ -239,7 +239,7 @@ const ChickenWebsite = () => {
                 playsInline 
                 className="w-full h-full object-cover"
               >
-                <source src="/poulimax/Life_cycle_egg_to_chicken_202604301948.mp4" type="video/mp4" />
+                <source src="Life_cycle_egg_to_chicken_202604301948.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-[#2D241E]/20 group-hover:bg-transparent transition-all duration-500" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
