@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.local
+.env.production.local
+*.log
+.nyc_output
+coverage
+.DS_Store
+Thumbs.db
+!.gitkeep
