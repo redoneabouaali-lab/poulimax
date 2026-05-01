@@ -394,29 +394,42 @@ const ChickenWebsite = () => {
             </p>
           </div>
           
-          <div>
-            <h4 className="font-bold mb-6">{t.navFeatures}</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-lg mb-2">{t.navFeatures}</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
               <li><a href="#features" className="hover:text-primary transition-colors">{t.navFeatures}</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'عن التطبيق' : 'À propos'}</a></li>
               <li><a href="#pricing" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'اتصل بنا' : 'Contactez-nous'}</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-6">Contact</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3 justify-end">contact@poulimax.ma <Mail className="w-4 h-4" /></li>
-              <li className="flex items-center gap-3 justify-end">+212 5XX XX XX XX <Phone className="w-4 h-4" /></li>
-              <li className="flex items-center gap-3 justify-end">Casablanca, Maroc <MapPin className="w-4 h-4" /></li>
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-lg mb-2">Contact</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-center gap-3 justify-start md:justify-start">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span dir="ltr">contact@poulimax.ma</span>
+              </li>
+              <li className="flex items-center gap-3 justify-start md:justify-start">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span dir="ltr">+212 5XX XX XX XX</span>
+              </li>
+              <li className="flex items-center gap-3 justify-start md:justify-start">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                <span>Casablanca, Maroc</span>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-bold mb-6">Suivez-nous</h4>
-            <div className="flex gap-4 justify-end">
-              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:text-primary cursor-pointer transition-colors"><Mail className="w-5 h-5" /></div>
-              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:text-primary cursor-pointer transition-colors"><Phone className="w-5 h-5" /></div>
+          <div className="flex flex-col gap-4">
+            <h4 className="font-bold text-lg mb-2">Suivez-nous</h4>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary hover:text-white cursor-pointer transition-all">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary hover:text-white cursor-pointer transition-all">
+                <Phone className="w-5 h-5" />
+              </div>
             </div>
           </div>
         </div>
