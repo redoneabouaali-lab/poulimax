@@ -397,9 +397,9 @@ const ChickenWebsite = () => {
           <div>
             <h4 className="font-bold mb-6">{t.navFeatures}</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">{t.navFeatures}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">عن التطبيق</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">اتصل بنا</a></li>
+              <li><a href="#features" className="hover:text-primary transition-colors">{t.navFeatures}</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'عن التطبيق' : 'À propos'}</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'اتصل بنا' : 'Contactez-nous'}</a></li>
             </ul>
           </div>
 
