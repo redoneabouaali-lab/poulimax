@@ -1,23 +1,24 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ChevronDown, Check, Mail, MapPin, Phone, ArrowRight, Menu, X, 
-  ChevronRight, Activity, BarChart3, Bell, Thermometer, Database, 
-  Heart, MessageSquare, Bot, Calculator, TrendingUp, ShieldCheck 
+  Check, Mail, MapPin, Phone, ArrowRight, Menu, X, 
+  Activity, BarChart3, Bot, Calculator, TrendingUp, ShieldCheck,
+  ChevronLeft, ChevronRight, MessageSquare, Globe, ExternalLink
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// ============================================================================
-// Poulimax - Moroccan Darija/French Version
-// ============================================================================
+/**
+ * POULIMAX - Professional Enterprise Edition
+ * A design focused on precision, clarity, and seriousness for the Moroccan agricultural market.
+ */
 
 const ChickenWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLang, setActiveLang] = useState('ar'); // 'ar' for Darija/Arabic, 'fr' for French
+  const [activeLang, setActiveLang] = useState('ar');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -28,413 +29,341 @@ const ChickenWebsite = () => {
   const content = {
     ar: {
       navFeatures: "المميزات",
-      navAI: "طبيب الدجاج (AI)",
+      navAI: "طبيب الدجاج",
       navPricing: "الأثمنة",
       cta: "ابدأ الآن",
-      heroBadge: "مستقبل تربية الدجاج في المغرب",
-      heroTitle: "كبر مشروعك بذكاء مع بوليماكس",
-      heroDesc: "أول تطبيق بالدارجة المغربية لمساعدة المربين الصغار. تتبع مصاريفك، احسب أرباحك، واستشر طبيب الدجاج بالذكاء الاصطناعي.",
-      heroBtn1: "جربه مجاناً",
-      heroBtn2: "شاهد الفيديو",
-      statsLabel: "نسبة الربح المتوقعة",
-      featuresTitle: "كل ما يحتاجه المربي في تطبيق واحد",
-      featuresQuote: '"الفلاح اللي مكيحسبش، السلعة كتاكلو"',
-      aiTitle: '"طبيب الدجاج" معاك في جيبك 24/24',
-      aiDesc: "الطبيب البيطري غالي ونادر في القرى. المساعد الذكي ديالنا كيهضر بالدارجة وكيفهم المشاكل ديالك وكيعطيك حلول فورية.",
-      chatPlaceholder: "اكتب سؤالك بالدارجة هنا...",
-      pricingTitle: "أثمنة في متناول الجميع",
-      pricingFree: "للأفراد",
-      pricingBusiness: "للشركات",
-      pricingContact: "اتصل بنا",
+      heroBadge: "نظام إدارة المداجن المغربي الاحترافي",
+      heroTitle: "سيطر على إنتاجك مع بوليماكس",
+      heroDesc: "منصة تقنية متكاملة للمربين المحترفين. تتبع دقيق للتكاليف، تحليلات متقدمة، واستشارات بيطرية مدعومة بالذكاء الاصطناعي.",
+      heroBtn1: "ابدأ دورتك الإنتاجية",
+      heroBtn2: "طلب عرض توضيحي",
+      statsLabel: "زيادة متوسط الربح",
+      featuresTitle: "أدوات دقيقة لإدارة احترافية",
+      featuresDesc: "صممنا أدواتنا لتكون دقيقة كأداة جراحية، لضمان أعلى مستويات الكفاءة في مزرعتك.",
+      aiTitle: "الاستشارة البيطرية الذكية (AI)",
+      aiDesc: "مساعد رقمي متخصص في أمراض الدواجن، متاح على مدار الساعة لتقديم تشخيصات أولية دقيقة بناءً على معايير علمية عالمية.",
+      pricingTitle: "خطط نمو مدروسة",
+      pricingDesc: "نحن شركاؤك في النجاح، اختر الخطة التي تناسب حجم إنتاجك الحالي.",
     },
     fr: {
-      navFeatures: "Fonctionnalités",
-      navAI: "AI Doctor",
-      navPricing: "Tarifs",
+      navFeatures: "Solutions",
+      navAI: "IA Vétérinaire",
+      navPricing: "Tarification",
       cta: "Démarrer",
-      heroBadge: "L'avenir de l'aviculture au Maroc",
-      heroTitle: "Gérez votre ferme avec Poulimax",
-      heroDesc: "La première application en Darija pour aider les petits éleveurs. Suivez vos dépenses, calculez vos bénéfices et consultez l'IA Doctor.",
-      heroBtn1: "Essayer Gratuitement",
-      heroBtn2: "Voir Démo",
-      statsLabel: "Marge de profit estimée",
-      featuresTitle: "Tout ce dont un éleveur a besoin",
-      featuresQuote: '"L\'éleveur qui ne compte pas finit par perdre"',
-      aiTitle: '"AI Doctor" dans votre poche 24/24',
-      aiDesc: "Le vétérinaire est cher et rare. Notre assistant intelligent parle Darija et propose des solutions immédiates basées sur l'IA.",
-      chatPlaceholder: "Posez votre question ici...",
-      pricingTitle: "Des tarifs accessibles à tous",
-      pricingFree: "Particuliers",
-      pricingBusiness: "Entreprises",
-      pricingContact: "Contactez-nous",
+      heroBadge: "Gestion Avicole Professionnelle au Maroc",
+      heroTitle: "Optimisez votre production avec Poulimax",
+      heroDesc: "Une plateforme technologique complète pour les éleveurs. Suivi précis des coûts, analyses avancées et conseils vétérinaires par IA.",
+      heroBtn1: "Lancer un cycle",
+      heroBtn2: "Demander une démo",
+      statsLabel: "Augmentation du profit",
+      featuresTitle: "Des outils de précision",
+      featuresDesc: "Nos outils sont conçus pour garantir une efficacité maximale dans votre exploitation avicole.",
+      aiTitle: "Consultation Vétérinaire Intelligente",
+      aiDesc: "Un assistant numérique spécialisé en aviculture, disponible 24/7 pour fournir des diagnostics précis basés sur des normes mondiales.",
+      pricingTitle: "Plans de croissance",
+      pricingDesc: "Nous sommes vos partenaires de succès. Choisissez le plan adapté à votre production.",
     }
   };
 
   const t = content[activeLang];
+  const isRtl = activeLang === 'ar';
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30" dir={activeLang === 'ar' ? 'rtl' : 'ltr'}>
-      {/* Navigation */}
+    <div className="min-h-screen bg-[#fafafa] text-[#1a1a1a] font-sans" dir={isRtl ? 'rtl' : 'ltr'}>
+      {/* Navigation - Minimal & Serious */}
       <nav className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 border-b",
-        scrolled ? "bg-background/80 backdrop-blur-md py-3 border-border" : "bg-transparent py-5 border-transparent"
+        "fixed top-0 w-full z-50 transition-all duration-500",
+        scrolled ? "bg-white/90 backdrop-blur-md py-4 border-b border-gray-100 shadow-sm" : "bg-transparent py-6"
       )}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-              <Activity className="text-primary-foreground w-6 h-6" />
+        <div className="container mx-auto px-8 flex justify-between items-center">
+          <div className="flex items-center gap-3 group cursor-pointer">
+            <div className="w-8 h-8 bg-[#0f172a] rounded flex items-center justify-center transition-transform group-hover:scale-105">
+              <Activity className="text-white w-5 h-5" />
             </div>
-            <span className="text-2xl font-bold tracking-tight">Poulimax <span className="text-primary">{activeLang === 'ar' ? 'بوليماكس' : ''}</span></span>
+            <span className="text-xl font-bold tracking-tight text-[#0f172a]">POULIMAX</span>
           </div>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#features" className="hover:text-primary transition-colors">{t.navFeatures}</a>
-            <a href="#ai-doctor" className="hover:text-primary transition-colors">{t.navAI}</a>
-            <a href="#pricing" className="hover:text-primary transition-colors">{t.navPricing}</a>
-            <div className="h-6 w-px bg-border mx-2" />
+          <div className="hidden lg:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-wider text-gray-500">
+            <a href="#features" className="hover:text-[#0f172a] transition-colors">{t.navFeatures}</a>
+            <a href="#ai-doctor" className="hover:text-[#0f172a] transition-colors">{t.navAI}</a>
+            <a href="#pricing" className="hover:text-[#0f172a] transition-colors">{t.navPricing}</a>
             <button 
               onClick={() => setActiveLang(activeLang === 'ar' ? 'fr' : 'ar')}
-              className="bg-secondary px-3 py-1 rounded-lg text-xs hover:bg-secondary/80 transition-colors uppercase font-bold"
+              className="flex items-center gap-1.5 hover:text-[#0f172a] transition-colors border-l border-gray-200 pl-6 ml-2"
             >
-              {activeLang === 'ar' ? 'Français' : 'الدارجة'}
+              <Globe className="w-4 h-4" />
+              {activeLang === 'ar' ? 'FR' : 'AR'}
             </button>
-            <button className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full hover:shadow-lg hover:shadow-primary/30 transition-all active:scale-95">
+            <button className="bg-[#0f172a] text-white px-7 py-3 rounded text-xs font-bold hover:bg-black transition-all">
               {t.cta}
             </button>
           </div>
 
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-primary rounded-full blur-[120px]" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary rounded-full blur-[150px]" />
-        </div>
-
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center text-center md:text-right">
+      {/* Hero Section - High-End SaaS Look */}
+      <section className="relative pt-48 pb-32 border-b border-gray-100 bg-white">
+        <div className="container mx-auto px-8 grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
+            className={cn(isRtl ? "text-right" : "text-left")}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6 mx-auto md:mx-0">
-              <Bot className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#059669] mb-8">
+              <span className="w-8 h-[1px] bg-[#059669]" />
               {t.heroBadge}
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-              {activeLang === 'ar' ? (
-                <>كبر مشروعك بذكاء مع <span className="text-primary">بوليماكس</span></>
-              ) : (
-                <>Gérez votre ferme avec <span className="text-primary">Poulimax</span></>
-              )}
+            <h1 className="text-5xl lg:text-7xl font-bold text-[#0f172a] leading-[1.1] mb-8 tracking-tight">
+              {t.heroTitle}
             </h1>
-            <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
+            <p className="text-lg text-gray-500 mb-12 leading-relaxed max-w-xl">
               {t.heroDesc}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2 hover:shadow-xl hover:shadow-primary/40 transition-all active:scale-95">
+            <div className="flex flex-col sm:flex-row gap-5">
+              <button className="bg-[#0f172a] text-white px-10 py-5 rounded text-sm font-bold flex items-center justify-center gap-3 hover:bg-black transition-all">
                 {t.heroBtn1}
-                <ArrowRight className={cn("w-5 h-5", activeLang === 'ar' ? "rotate-180" : "")} />
+                <ArrowRight className={cn("w-4 h-4", isRtl ? "rotate-180" : "")} />
               </button>
-              <button className="bg-secondary text-secondary-foreground px-8 py-4 rounded-2xl text-lg font-bold hover:bg-secondary/80 transition-all">
+              <button className="bg-white border border-gray-200 text-[#0f172a] px-10 py-5 rounded text-sm font-bold hover:border-black transition-all">
                 {t.heroBtn2}
               </button>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-primary/20 to-transparent p-4 rounded-[2.5rem]">
+            <div className="relative z-10 rounded-lg overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100">
               <img 
-                src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800" 
-                alt="Poultry Farm" 
-                className="rounded-[2rem] shadow-2xl w-full object-cover aspect-video md:aspect-square"
+                src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1200" 
+                alt="Poultry Management" 
+                className="w-full grayscale-[20%] hover:grayscale-0 transition-all duration-700"
               />
             </div>
-            {/* Stats Badge */}
+            {/* Serious Data Badge */}
             <div className={cn(
-              "absolute -bottom-6 bg-background p-6 rounded-3xl shadow-xl border border-border animate-bounce-subtle",
-              activeLang === 'ar' ? "-right-6" : "-left-6"
+              "absolute -bottom-10 bg-[#0f172a] text-white p-8 rounded shadow-2xl z-20",
+              isRtl ? "-right-10" : "-left-10"
             )}>
-              <div className="flex items-center gap-4 mb-2">
-                <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center">
-                  <TrendingUp className="text-green-500" />
-                </div>
-                <div className="text-right">
-                  <p className="text-sm text-muted-foreground">{t.statsLabel}</p>
-                  <p className="text-2xl font-bold">+24%</p>
-                </div>
-              </div>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">{t.statsLabel}</p>
+              <p className="text-4xl font-bold tracking-tight">+24.8%</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* MVP Features */}
-      <section id="features" className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-6 text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">{t.featuresTitle}</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto italic text-lg">
-            {t.featuresQuote}
-          </p>
-        </div>
+      {/* Features - Precision Grid */}
+      <section id="features" className="py-32 bg-[#fafafa]">
+        <div className="container mx-auto px-8">
+          <div className={cn("mb-24", isRtl ? "text-right" : "text-left")}>
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-6 tracking-tight">{t.featuresTitle}</h2>
+            <p className="text-gray-500 max-w-2xl leading-relaxed">{t.featuresDesc}</p>
+          </div>
 
-        <div className="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              title: activeLang === 'ar' ? "تتبع القطيع" : "Suivi du Troupeau",
-              desc: activeLang === 'ar' ? "عدد الكتاكيت، الوفيات، والوزن اليومي بكل سهولة." : "Nombre de poussins, mortalité et poids quotidien.",
-              icon: <Activity className="w-6 h-6" />,
-              color: "bg-blue-500"
-            },
-            {
-              title: activeLang === 'ar' ? "حاسبة الربح" : "Calculateur de Profit",
-              desc: activeLang === 'ar' ? "حساب العلف مقابل ثمن البيع باش تعرف راسك فين غادي." : "Calcul de l'aliment par rapport au prix de vente.",
-              icon: <Calculator className="w-6 h-6" />,
-              color: "bg-orange-500"
-            },
-            {
-              title: activeLang === 'ar' ? "تنبيهات الصحة" : "Alertes Santé",
-              desc: activeLang === 'ar' ? "جدول التلقيحات وأهم النصائح لتفادي الأمراض." : "Calendrier de vaccination et conseils de santé.",
-              icon: <ShieldCheck className="w-6 h-6" />,
-              color: "bg-green-500"
-            },
-            {
-              title: activeLang === 'ar' ? "تقارير بسيطة" : "Rapports Simples",
-              desc: activeLang === 'ar' ? "شحال ربحتي وشحال خسرتي في كل دورة إنتاج." : "Gain/perte simplifié pour chaque cycle de production.",
-              icon: <BarChart3 className="w-6 h-6" />,
-              color: "bg-purple-500"
-            }
-          ].map((feature, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              className="bg-background p-8 rounded-[2rem] border border-border shadow-sm hover:shadow-xl transition-all text-right"
-            >
-              <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg mx-auto md:mx-0", feature.color)}>
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
-            </motion.div>
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {[
+              {
+                title: isRtl ? "تتبع القطيع" : "Suivi Troupeau",
+                desc: isRtl ? "مراقبة دقيقة للأعداد والوزن ومعدلات النمو اليومية." : "Suivi rigoureux des effectifs, du poids et de la croissance.",
+                icon: <Activity className="w-5 h-5" />,
+              },
+              {
+                title: isRtl ? "حاسبة الربح" : "Calcul de Marge",
+                desc: isRtl ? "تحليل مالي فوري للتكاليف المباشرة وهامش الربح المتوقع." : "Analyse financière immédiate des coûts directs et marges.",
+                icon: <Calculator className="w-5 h-5" />,
+              },
+              {
+                title: isRtl ? "الأمن الحيوي" : "Biosécurité",
+                desc: isRtl ? "جدولة زمنية صارمة للتلقيحات وبروتوكولات الوقاية الصحية." : "Planification stricte des vaccins et protocoles sanitaires.",
+                icon: <ShieldCheck className="w-5 h-5" />,
+              },
+              {
+                title: isRtl ? "التقارير التحليلية" : "Rapports Analytiques",
+                desc: isRtl ? "تقارير شاملة لدعم اتخاذ القرار في نهاية كل دورة." : "Rapports détaillés d'aide à la décision à chaque cycle.",
+                icon: <BarChart3 className="w-5 h-5" />,
+              }
+            ].map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className={cn(
+                  "group p-10 bg-white border border-gray-100 hover:border-gray-300 transition-all duration-300 rounded shadow-sm",
+                  isRtl ? "text-right" : "text-left"
+                )}
+              >
+                <div className="w-12 h-12 bg-gray-50 rounded flex items-center justify-center mb-8 text-[#0f172a] group-hover:bg-[#0f172a] group-hover:text-white transition-colors">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-bold mb-4 tracking-tight">{feature.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* AI Doctor Section */}
-      <section id="ai-doctor" className="py-24 overflow-hidden">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div className="relative order-2 md:order-1">
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] -z-10 rounded-full" />
-            <div className="bg-background/80 backdrop-blur-sm p-6 rounded-3xl border border-border shadow-2xl relative">
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground">
-                  <Bot />
+      {/* AI Doctor - Scientific Focus */}
+      <section id="ai-doctor" className="py-32 bg-white border-y border-gray-100">
+        <div className="container mx-auto px-8 grid lg:grid-cols-2 gap-24 items-center">
+          <div className="relative">
+            <div className="aspect-square bg-gray-50 rounded-2xl p-10 flex flex-col justify-center items-center">
+              <div className="w-full max-w-sm bg-white rounded shadow-2xl border border-gray-100 overflow-hidden">
+                <div className="bg-[#0f172a] p-4 flex items-center gap-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-xs font-bold text-white uppercase tracking-widest">Medical AI Console</span>
                 </div>
-                <div className="text-right">
-                  <h4 className="font-bold">{activeLang === 'ar' ? 'مساعد AI - طبيب الدجاج' : 'AI Doctor Assistant'}</h4>
-                  <p className="text-xs text-green-500 font-medium">متصل الآن - En ligne</p>
+                <div className="p-8 space-y-6">
+                  <div className={cn("p-4 bg-gray-50 rounded text-xs text-gray-600 leading-relaxed", isRtl ? "text-right" : "text-left")}>
+                    {isRtl ? "تحليل الأعراض السريرية للقطيع..." : "Analyse des symptômes cliniques..."}
+                  </div>
+                  <div className={cn("p-4 bg-[#0f172a]/5 border border-[#0f172a]/10 rounded text-xs text-[#0f172a] leading-relaxed", isRtl ? "text-right" : "text-left")}>
+                    {isRtl ? "النتيجة: احتمال 85% إصابة تنفسية. يرجى مراجعة التهوية فوراً." : "Résultat: 85% probabilité d'infection respiratoire. Vérifiez la ventilation."}
+                  </div>
                 </div>
-              </div>
-              
-              <div className="space-y-4 mb-6">
-                <div className="bg-secondary/50 p-4 rounded-2xl rounded-tr-none text-sm max-w-[80%] mr-auto text-left" dir="ltr">
-                  {activeLang === 'ar' ? '"الدجاج ماكلاش ومريض — شنو المشكل؟"' : '"Mes poulets ne mangent pas et sont malades ?"'}
-                </div>
-                <div className="bg-primary/10 p-4 rounded-2xl rounded-tl-none text-sm max-w-[80%] ml-auto leading-relaxed text-right">
-                  {activeLang === 'ar' ? (
-                    "بناءً على الأعراض اللي ذكرتي، يقدر يكون مشكل في التهوية أو بداية مرض معدي. واش كاين خنين أو كحة؟"
-                  ) : (
-                    "D'après les symptômes, il peut s'agir d'un problème de ventilation ou d'une maladie infectieuse. Y a-t-il des éternuements ?"
-                  )}
-                </div>
-              </div>
-              
-              <div className="flex gap-2 p-2 bg-secondary/30 rounded-xl">
-                <div className="flex-1 text-sm text-muted-foreground p-2 text-right">{t.chatPlaceholder}</div>
-                <button className="bg-primary p-2 rounded-lg text-primary-foreground"><ArrowRight className={cn("w-4 h-4", activeLang === 'ar' ? "rotate-180" : "")} /></button>
               </div>
             </div>
           </div>
 
-          <div className="order-1 md:order-2 text-right">
-            <h2 className="text-4xl font-bold mb-6 italic leading-tight">{t.aiTitle}</h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <div className={cn(isRtl ? "text-right" : "text-left")}>
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-8 tracking-tight">{t.aiTitle}</h2>
+            <p className="text-lg text-gray-500 mb-10 leading-relaxed">
               {t.aiDesc}
             </p>
-            <ul className="space-y-4">
+            <div className="space-y-6">
               {[
-                activeLang === 'ar' ? "تشخيص الأمراض بالدارجة" : "Diagnostic des maladies en Darija",
-                activeLang === 'ar' ? "حساب كمية العلف اليومية" : "Calcul de l'aliment quotidien",
-                activeLang === 'ar' ? "تتبع أسعار السوق مباشرة" : "Suivi des prix du marché",
-                activeLang === 'ar' ? "دعم صوتي للمربين (قريباً)" : "Support vocal (Bientôt)"
+                isRtl ? "دقة تشخيص تصل إلى 94%" : "Précision diagnostique jusqu'à 94%",
+                isRtl ? "قاعدة بيانات علمية محدثة" : "Base de données scientifique à jour",
+                isRtl ? "تكامل مع الأطباء البيطريين المحليين" : "Intégration avec les vétérinaires locaux"
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 font-medium justify-end">
-                  {item}
-                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center text-primary">
-                    <Check className="w-4 h-4" />
+                <div key={i} className={cn("flex items-center gap-4", isRtl ? "flex-row-reverse" : "")}>
+                  <div className="w-5 h-5 bg-[#059669]/10 rounded-full flex items-center justify-center text-[#059669]">
+                    <Check className="w-3 h-3" />
                   </div>
-                </li>
+                  <span className="text-sm font-semibold text-gray-700">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing / Business Model */}
-      <section id="pricing" className="py-24 bg-primary/5">
-        <div className="container mx-auto px-6 text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 italic">{t.pricingTitle}</h2>
-          <p className="text-muted-foreground">{activeLang === 'ar' ? 'هدفنا هو نكبروا مع الفلاح المغربي' : 'Notre objectif est de grandir avec l\'éleveur marocain'}</p>
-        </div>
-
-        <div className="container mx-auto px-6 grid md:grid-cols-2 max-w-4xl gap-8">
-          <div className="bg-background p-10 rounded-[2.5rem] border border-border shadow-sm flex flex-col items-center">
-            <h3 className="text-2xl font-bold mb-4">{t.pricingFree}</h3>
-            <div className="text-5xl font-extrabold mb-6 text-primary">0 DH</div>
-            <p className="text-muted-foreground mb-8 text-center">{activeLang === 'ar' ? 'مجاني للأبد باش تبني الثقة وتجرب التطبيق' : 'Gratuit pour toujours pour tester l\'application'}</p>
-            <ul className="space-y-4 mb-10 w-full text-right">
-              {[
-                activeLang === 'ar' ? "تتبع 1000 طائر" : "Suivi de 1000 oiseaux",
-                activeLang === 'ar' ? "حاسبة الربح" : "Calculateur de profit",
-                activeLang === 'ar' ? "استشارات AI محدودة" : "Consultations IA limitées"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 justify-end">
-                  <span>{item}</span>
-                  <Check className="text-green-500 w-5 h-5" />
-                </li>
-              ))}
-            </ul>
-            <button className="w-full py-4 border-2 border-primary text-primary rounded-2xl font-bold hover:bg-primary hover:text-white transition-all">{t.cta}</button>
+      {/* Pricing - Structured & Clear */}
+      <section id="pricing" className="py-32 bg-[#fafafa]">
+        <div className="container mx-auto px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-3xl font-bold text-[#0f172a] mb-6 tracking-tight">{t.pricingTitle}</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">{t.pricingDesc}</p>
           </div>
 
-          <div className="bg-primary text-primary-foreground p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden flex flex-col items-center">
-            <div className="absolute top-0 right-0 p-4 bg-white/20 rounded-bl-2xl text-xs font-bold uppercase tracking-widest">{activeLang === 'ar' ? 'الأكثر طلباً' : 'Populaire'}</div>
-            <h3 className="text-2xl font-bold mb-4">{t.pricingBusiness}</h3>
-            <div className="text-4xl font-extrabold mb-2 text-white">{t.pricingContact}</div>
-            <p className="text-primary-foreground/70 mb-8 text-center">{activeLang === 'ar' ? 'حلول خاصة للتعاونيات وشركات العلف' : 'Solutions pour les coopératives et entreprises'}</p>
-            <ul className="space-y-4 mb-10 w-full text-right">
-              {[
-                activeLang === 'ar' ? "عيادات بيطرية رقمية" : "Cliniques vétérinaires digitales",
-                activeLang === 'ar' ? "وايت لايبل مخصص" : "Solution White Label",
-                activeLang === 'ar' ? "دعم فني 24/7" : "Support technique 24/7"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 justify-end">
-                  <span>{item}</span>
-                  <Check className="text-white w-5 h-5" />
-                </li>
-              ))}
-            </ul>
-            <button className="w-full py-4 bg-white text-primary rounded-2xl font-bold hover:shadow-xl transition-all">{t.pricingContact}</button>
+          <div className="grid md:grid-cols-2 max-w-5xl mx-auto gap-10">
+            {/* Pro Card */}
+            <div className="bg-white p-12 rounded border border-gray-200 shadow-sm transition-all hover:border-gray-400">
+              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">{isRtl ? "نسخة المربين" : "EDITION ELEVEURS"}</h3>
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="text-5xl font-bold text-[#0f172a]">0</span>
+                <span className="text-xl font-semibold text-gray-400">DH</span>
+              </div>
+              <ul className="space-y-5 mb-12 border-t border-gray-50 pt-8">
+                {[
+                  isRtl ? "تتبع قطيع واحد" : "Suivi d'un seul troupeau",
+                  isRtl ? "حاسبة الربح الأساسية" : "Calculateur de profit basique",
+                  isRtl ? "دعم عبر البريد الإلكتروني" : "Support par email"
+                ].map((item, i) => (
+                  <li key={i} className={cn("flex items-center gap-4 text-sm text-gray-600", isRtl ? "flex-row-reverse" : "")}>
+                    <Check className="w-4 h-4 text-green-600 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full py-5 border border-[#0f172a] text-[#0f172a] rounded text-xs font-bold uppercase tracking-widest hover:bg-[#0f172a] hover:text-white transition-all">
+                {isRtl ? "ابدأ الاستخدام المجاني" : "COMMENCER GRATUITEMENT"}
+              </button>
+            </div>
+
+            {/* Enterprise Card */}
+            <div className="bg-[#0f172a] p-12 rounded shadow-2xl text-white relative overflow-hidden transition-all hover:scale-[1.02]">
+              <div className="absolute top-0 right-0 p-4 bg-white/10 text-[9px] font-bold uppercase tracking-widest">Enterprise</div>
+              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">{isRtl ? "نسخة الشركات" : "EDITION ENTREPRISE"}</h3>
+              <div className="flex items-baseline gap-2 mb-8">
+                <span className="text-4xl font-bold">{isRtl ? "حسب الاحتياج" : "SUR MESURE"}</span>
+              </div>
+              <ul className="space-y-5 mb-12 border-t border-white/10 pt-8 text-gray-300">
+                {[
+                  isRtl ? "إدارة مزارع متعددة" : "Gestion multi-fermes",
+                  isRtl ? "تحليلات الذكاء الاصطناعي الكاملة" : "Analyses IA complètes",
+                  isRtl ? "ربط مع أنظمة ERP" : "Intégration ERP",
+                  isRtl ? "مدير حساب مخصص" : "Account Manager dédié"
+                ].map((item, i) => (
+                  <li key={i} className={cn("flex items-center gap-4 text-sm", isRtl ? "flex-row-reverse" : "")}>
+                    <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full py-5 bg-white text-[#0f172a] rounded text-xs font-bold uppercase tracking-widest hover:bg-gray-100 transition-all">
+                {isRtl ? "تواصل مع قسم المبيعات" : "CONTACTER LES VENTES"}
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Chatbot Floating Button */}
-      <div className={cn("fixed bottom-8 z-50", activeLang === 'ar' ? "right-8" : "left-8")}>
-        <AnimatePresence>
-          {isChatOpen && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 20 }}
-              className={cn(
-                "absolute bottom-20 w-80 bg-background rounded-3xl border border-border shadow-2xl overflow-hidden",
-                activeLang === 'ar' ? "right-0" : "left-0"
-              )}
-            >
-              <div className="bg-primary p-4 text-primary-foreground flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <Bot className="w-5 h-5" />
-                  <span className="font-bold">{activeLang === 'ar' ? 'طبيب الدجاج' : 'AI Doctor'}</span>
+      {/* Footer - Professional & Clear */}
+      <footer className="bg-white border-t border-gray-100 pt-24 pb-12">
+        <div className="container mx-auto px-8">
+          <div className="grid md:grid-cols-4 gap-16 mb-20">
+            <div className="col-span-1 md:col-span-1">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-6 h-6 bg-[#0f172a] rounded flex items-center justify-center">
+                  <Activity className="text-white w-4 h-4" />
                 </div>
-                <button onClick={() => setIsChatOpen(false)}><X className="w-5 h-5" /></button>
+                <span className="text-lg font-bold tracking-tight text-[#0f172a]">POULIMAX</span>
               </div>
-              <div className="h-96 p-4 overflow-y-auto bg-secondary/10 flex flex-col gap-4">
-                <div className="bg-primary/10 p-3 rounded-2xl rounded-tl-none text-sm self-end text-right">
-                  {activeLang === 'ar' ? 'السلام عليكم! أنا طبيب الدجاج ديالك. كيفاش نقدر نعاونك اليوم؟' : 'Bonjour! Je suis votre AI Doctor. Comment puis-je vous aider ?'}
-                </div>
-              </div>
-              <div className="p-4 bg-background border-t border-border flex gap-2">
-                <input type="text" placeholder={t.chatPlaceholder} className="flex-1 text-sm bg-secondary/50 p-2 rounded-xl border-none focus:ring-1 focus:ring-primary outline-none text-right" />
-                <button className="bg-primary p-2 rounded-xl text-primary-foreground"><ArrowRight className={cn("w-5 h-5", activeLang === 'ar' ? "rotate-180" : "")} /></button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        
-        <button 
-          onClick={() => setIsChatOpen(!isChatOpen)}
-          className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-2xl hover:scale-110 active:scale-95 transition-all group"
-        >
-          <MessageSquare className="w-7 h-7 group-hover:rotate-12 transition-transform" />
-          <span className="absolute -top-2 -left-2 bg-red-500 text-white text-[10px] px-2 py-1 rounded-full font-bold">1</span>
-        </button>
-      </div>
-
-      {/* Footer */}
-      <footer className="bg-secondary/50 py-16 border-t border-border">
-        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12 text-right">
-          <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-6 justify-end">
-              <Activity className="text-primary w-6 h-6" />
-              <span className="text-xl font-bold">Poulimax</span>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {isRtl ? "المعيار التقني الجديد لإدارة الثروة الداجنة في المغرب." : "Le nouveau standard technologique pour la gestion avicole au Maroc."}
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              {activeLang === 'ar' ? 'ثورة في عالم تربية الدجاج بالمغرب. نجمع بين الخبرة الميدانية وأحدث تقنيات الذكاء الاصطناعي لمساعدة الفلاح.' : 'Révolutionner l\'aviculture au Maroc avec l\'IA.'}
-            </p>
-          </div>
-          
-          <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-lg mb-2">{t.navFeatures}</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#features" className="hover:text-primary transition-colors">{t.navFeatures}</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'عن التطبيق' : 'À propos'}</a></li>
-              <li><a href="#pricing" className="hover:text-primary transition-colors">{activeLang === 'ar' ? 'اتصل بنا' : 'Contactez-nous'}</a></li>
-            </ul>
-          </div>
+            
+            <div className={cn("flex flex-col gap-6", isRtl ? "text-right" : "text-left")}>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-[#0f172a]">{t.navFeatures}</h4>
+              <ul className="space-y-4 text-sm text-gray-500">
+                <li><a href="#features" className="hover:text-[#0f172a] transition-colors">{t.navFeatures}</a></li>
+                <li><a href="#" className="hover:text-[#0f172a] transition-colors">{isRtl ? "الخصوصية" : "Vie Privée"}</a></li>
+              </ul>
+            </div>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-lg mb-2">Contact</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-center gap-3 justify-start md:justify-start">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <span dir="ltr">contact@poulimax.ma</span>
-              </li>
-              <li className="flex items-center gap-3 justify-start md:justify-start">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span dir="ltr">+212 5XX XX XX XX</span>
-              </li>
-              <li className="flex items-center gap-3 justify-start md:justify-start">
-                <MapPin className="w-4 h-4 flex-shrink-0" />
-                <span>Casablanca, Maroc</span>
-              </li>
-            </ul>
-          </div>
+            <div className={cn("flex flex-col gap-6", isRtl ? "text-right" : "text-left")}>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-[#0f172a]">Contact</h4>
+              <ul className="space-y-4 text-sm text-gray-500">
+                <li className={cn("flex items-center gap-3", isRtl ? "flex-row-reverse" : "")}>
+                  <Mail className="w-4 h-4" />
+                  <span dir="ltr">office@poulimax.ma</span>
+                </li>
+                <li className={cn("flex items-center gap-3", isRtl ? "flex-row-reverse" : "")}>
+                  <Phone className="w-4 h-4" />
+                  <span dir="ltr">+212 522 XX XX XX</span>
+                </li>
+              </ul>
+            </div>
 
-          <div className="flex flex-col gap-4">
-            <h4 className="font-bold text-lg mb-2">Suivez-nous</h4>
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary hover:text-white cursor-pointer transition-all">
-                <Mail className="w-5 h-5" />
-              </div>
-              <div className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-primary hover:text-white cursor-pointer transition-all">
-                <Phone className="w-5 h-5" />
-              </div>
+            <div className={cn("flex flex-col gap-6", isRtl ? "text-right" : "text-left")}>
+              <h4 className="text-xs font-bold uppercase tracking-widest text-[#0f172a]">Legal</h4>
+              <p className="text-sm text-gray-500">© 2026 Poulimax S.A.R.L.<br />Casablanca, Maroc</p>
             </div>
           </div>
-        </div>
-        <div className="container mx-auto px-6 pt-12 mt-12 border-t border-border text-center text-sm text-muted-foreground">
-          &copy; 2026 Poulimax بوليماكس. Tous droits réservés.
+          <div className="text-center text-[10px] text-gray-400 uppercase tracking-[0.3em] pt-12 border-t border-gray-50">
+            Poulimax - Professional Agricultural Technology
+          </div>
         </div>
       </footer>
     </div>
